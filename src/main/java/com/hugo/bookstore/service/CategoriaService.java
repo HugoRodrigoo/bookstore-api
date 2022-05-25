@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.hugo.bookstore.domain.Categoria;
+import com.hugo.bookstore.dtos.CategoriaDTO;
 import com.hugo.bookstore.repositories.CategoriaRepository;
 import com.hugo.bookstore.service.exepitions.ObjectNotFoundException;
 
@@ -29,6 +30,13 @@ public class CategoriaService {
 	
 	public Categoria criate(Categoria obj) {
 		obj.setId(null);
+		return repository.save(obj);
+	}
+
+	public Categoria update(Integer id, CategoriaDTO objDto) {
+		Categoria obj = findById(id);
+		obj.setNome(objDto.getNome());
+		obj.setDiscricao(objDto.getDiscricao());
 		return repository.save(obj);
 	}
 }
