@@ -1,4 +1,4 @@
-package com.hugo.bookstore.service.exepitions;
+package com.hugo.bookstore.resources.exceptions;
 
 public class StandardError {
 
